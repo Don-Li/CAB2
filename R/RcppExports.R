@@ -41,3 +41,8 @@ rcpparma_bothproducts <- function(x) {
     .Call('_CAB2_rcpparma_bothproducts', PACKAGE = 'CAB2', x)
 }
 
+#'@export srs
+srs <- function(choose_max, repeats, sample_size, replace) {
+    .Call('_CAB2_srs', PACKAGE = 'CAB2', choose_max, repeats, sample_size, replace)
+}
+

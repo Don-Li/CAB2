@@ -109,6 +109,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// srs
+NumericMatrix srs(int choose_max, int repeats, int sample_size, bool replace);
+RcppExport SEXP _CAB2_srs(SEXP choose_maxSEXP, SEXP repeatsSEXP, SEXP sample_sizeSEXP, SEXP replaceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type choose_max(choose_maxSEXP);
+    Rcpp::traits::input_parameter< int >::type repeats(repeatsSEXP);
+    Rcpp::traits::input_parameter< int >::type sample_size(sample_sizeSEXP);
+    Rcpp::traits::input_parameter< bool >::type replace(replaceSEXP);
+    rcpp_result_gen = Rcpp::wrap(srs(choose_max, repeats, sample_size, replace));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_CAB2_EBD_BR", (DL_FUNC) &_CAB2_EBD_BR, 2},
@@ -120,6 +134,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_CAB2_rcpparma_outerproduct", (DL_FUNC) &_CAB2_rcpparma_outerproduct, 1},
     {"_CAB2_rcpparma_innerproduct", (DL_FUNC) &_CAB2_rcpparma_innerproduct, 1},
     {"_CAB2_rcpparma_bothproducts", (DL_FUNC) &_CAB2_rcpparma_bothproducts, 1},
+    {"_CAB2_srs", (DL_FUNC) &_CAB2_srs, 4},
     {NULL, NULL, 0}
 };
 
