@@ -1,0 +1,54 @@
+#' @include RcppExports.R
+NULL
+
+#' Compute the time between events.
+#'
+#' Compute the time between two events. This is useful for computing things like IRTs (time between the same kind of response), changeover times (times between different kinds of responses), PRPs, etc.
+#'
+#' @param time A numeric vector of times.
+#' @param event A character vector of events.
+#' @param x_events A character vector naming the event that starts the inter-event interval.
+#' @param y_events A character vector naming the event that terminates the inter-event interval.
+#' @param break_labels A character vector of events that break the inter-event interval.
+#'
+#' @return
+#' Returns a list containing three vectors:
+#' \describe{
+#' \code{ixyi} contains all the inter-event intervals.
+#' \code{ixyi_type} labels each of the inter-event intervals.
+#' \code{ixyi_counter} Tabulates each of the labels.
+#' }
+#'
+#' @details
+#' When labelling the inter-event intervals, the order of the categories is as they are entered in the \code{x_events} and \code{y_events} arguments. For example, if \code{x_events = c("respR","respL")} and \code{y_events = c("respR","respL") }, then the labels will be ordered: "RR", "RL", "LR", "LL" for the IRTs. These are zero indexed, so \code{0} would label RR IRTs.
+#'
+#' The \code{ixyi_counter} tabulates are in the same order as the labels.
+#'
+#'
+#' @rdname ixyi
+#' @aliases inter_event_interval
+#' @aliases inter_x_y_interval
+#' @aliases irt
+#' @aliases prp
+#' @aliases iri
+#' @name ixyi_help
+#' @examples
+#' \dontrun{
+#' # Make an event record
+#' time = 1:10*0.5
+#' events = c( rep( "resp", 3), "rft", rep( "resp", 3), "rft", "resp" )
+#' # Calcualte IRTs without considering intervening reinforcer deliveries
+#' irts1 = ixyi( events, time, "resp", "resp", "" )
+#' # Account for intervening reinforcer deliveries
+#' irts2 = ixyi( events, time, "resp", "resp", "rft" )
+#'
+#' # Compute the PRPs
+#' prps = ixyi( events, time, "rft", "resp", "" )
+#'
+#' # If we have a concurrent schedule, we have IRTs between left-left, left-right, right-left, and right-right responses
+#' events2 = c( "respL", "respR", "respR", "rft", "respR", "respR", "respL", "rft", "respR" )
+#' irts3 = ixyi( events2, time, c("respR","respL"), c("respR","respL"), "rft" )
+#' # Two R-R IRTs, one L-R IRT, and one R-L IRT
+#' }
+
+NULL

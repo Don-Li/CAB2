@@ -6,6 +6,21 @@
 
 using namespace Rcpp;
 
+// ixyi
+List ixyi(CharacterVector event, NumericVector time, CharacterVector x_events, CharacterVector y_events, CharacterVector break_events);
+RcppExport SEXP _CAB2_ixyi(SEXP eventSEXP, SEXP timeSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP break_eventsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type time(timeSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type x_events(x_eventsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type y_events(y_eventsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type break_events(break_eventsSEXP);
+    rcpp_result_gen = Rcpp::wrap(ixyi(event, time, x_events, y_events, break_events));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_hello
 List rcpp_hello();
 RcppExport SEXP _CAB2_rcpp_hello() {
@@ -61,6 +76,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
     {"_CAB2_rcpp_hello", (DL_FUNC) &_CAB2_rcpp_hello, 0},
     {"_CAB2_rcpparma_hello_world", (DL_FUNC) &_CAB2_rcpparma_hello_world, 0},
     {"_CAB2_rcpparma_outerproduct", (DL_FUNC) &_CAB2_rcpparma_outerproduct, 1},
