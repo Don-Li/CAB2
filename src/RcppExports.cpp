@@ -21,6 +21,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// ks
+double ks(arma::colvec sample_1, arma::colvec sample_2);
+RcppExport SEXP _CAB2_ks(SEXP sample_1SEXP, SEXP sample_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::colvec >::type sample_1(sample_1SEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type sample_2(sample_2SEXP);
+    rcpp_result_gen = Rcpp::wrap(ks(sample_1, sample_2));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_hello
 List rcpp_hello();
 RcppExport SEXP _CAB2_rcpp_hello() {
@@ -77,6 +89,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
+    {"_CAB2_ks", (DL_FUNC) &_CAB2_ks, 2},
     {"_CAB2_rcpp_hello", (DL_FUNC) &_CAB2_rcpp_hello, 0},
     {"_CAB2_rcpparma_hello_world", (DL_FUNC) &_CAB2_rcpparma_hello_world, 0},
     {"_CAB2_rcpparma_outerproduct", (DL_FUNC) &_CAB2_rcpparma_outerproduct, 1},

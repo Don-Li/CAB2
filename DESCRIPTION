@@ -14,6 +14,7 @@ Collate:
     'hello.R'
     'help_file.R'
     'ixyi.R'
+    'kolmogorov_smirnov.R'
 LinkingTo: Rcpp, RcppArmadillo
 Imports:
     Rcpp,

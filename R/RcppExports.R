@@ -6,6 +6,11 @@ ixyi <- function(event, time, x_events, y_events, break_events) {
     .Call('_CAB2_ixyi', PACKAGE = 'CAB2', event, time, x_events, y_events, break_events)
 }
 
+#'@export ks
+ks <- function(sample_1, sample_2) {
+    .Call('_CAB2_ks', PACKAGE = 'CAB2', sample_1, sample_2)
+}
+
 rcpp_hello <- function() {
     .Call('_CAB2_rcpp_hello', PACKAGE = 'CAB2')
 }
