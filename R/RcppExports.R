@@ -5,3 +5,19 @@ rcpp_hello <- function() {
     .Call('_CAB2_rcpp_hello', PACKAGE = 'CAB2')
 }
 
+rcpparma_hello_world <- function() {
+    .Call('_CAB2_rcpparma_hello_world', PACKAGE = 'CAB2')
+}
+
+rcpparma_outerproduct <- function(x) {
+    .Call('_CAB2_rcpparma_outerproduct', PACKAGE = 'CAB2', x)
+}
+
+rcpparma_innerproduct <- function(x) {
+    .Call('_CAB2_rcpparma_innerproduct', PACKAGE = 'CAB2', x)
+}
+
+rcpparma_bothproducts <- function(x) {
+    .Call('_CAB2_rcpparma_bothproducts', PACKAGE = 'CAB2', x)
+}
+
