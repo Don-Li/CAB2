@@ -31,7 +31,7 @@ NULL
 #' @aliases irt
 #' @aliases prp
 #' @aliases iri
-#' @name ixyi_help
+#' @name ixyi
 #' @examples
 #' \dontrun{
 #' # Make an event record
