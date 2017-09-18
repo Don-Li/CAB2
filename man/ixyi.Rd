@@ -44,7 +44,7 @@ irts2 = ixyi( events, time, "resp", "resp", "rft" )
 # Compute the PRPs
 prps = ixyi( events, time, "rft", "resp", "" )
 
-# If we have a concurrent schedule, we have IRTs between left-left, left-right, right-left, and right-right responses
+# If we have a concurrent schedule, we have IRTs between LL, LR, RL, and RR responses
 events2 = c( "respL", "respR", "respR", "rft", "respR", "respR", "respL", "rft", "respR" )
 irts3 = ixyi( events2, time, c("respR","respL"), c("respR","respL"), "rft" )
 # Two R-R IRTs, one L-R IRT, and one R-L IRT

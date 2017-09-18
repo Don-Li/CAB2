@@ -6,6 +6,29 @@
 
 using namespace Rcpp;
 
+// EBD_BR
+arma::umat EBD_BR(arma::umat fathers, arma::umat mothers);
+RcppExport SEXP _CAB2_EBD_BR(SEXP fathersSEXP, SEXP mothersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::umat >::type fathers(fathersSEXP);
+    Rcpp::traits::input_parameter< arma::umat >::type mothers(mothersSEXP);
+    rcpp_result_gen = Rcpp::wrap(EBD_BR(fathers, mothers));
+    return rcpp_result_gen;
+END_RCPP
+}
+// EBD_RS_BR
+arma::umat EBD_RS_BR(arma::umat parents);
+RcppExport SEXP _CAB2_EBD_RS_BR(SEXP parentsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::umat >::type parents(parentsSEXP);
+    rcpp_result_gen = Rcpp::wrap(EBD_RS_BR(parents));
+    return rcpp_result_gen;
+END_RCPP
+}
 // ixyi
 List ixyi(CharacterVector event, NumericVector time, CharacterVector x_events, CharacterVector y_events, CharacterVector break_events);
 RcppExport SEXP _CAB2_ixyi(SEXP eventSEXP, SEXP timeSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP break_eventsSEXP) {
@@ -88,6 +111,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_CAB2_EBD_BR", (DL_FUNC) &_CAB2_EBD_BR, 2},
+    {"_CAB2_EBD_RS_BR", (DL_FUNC) &_CAB2_EBD_RS_BR, 1},
     {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
     {"_CAB2_ks", (DL_FUNC) &_CAB2_ks, 2},
     {"_CAB2_rcpp_hello", (DL_FUNC) &_CAB2_rcpp_hello, 0},
