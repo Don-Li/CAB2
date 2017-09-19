@@ -16,6 +16,11 @@ factorial_counts <- function(event, break_labels, reset_labels, event_labels, ma
     .Call('_CAB2_factorial_counts', PACKAGE = 'CAB2', event, break_labels, reset_labels, event_labels, max_breaks)
 }
 
+#'@export factorial_time_bin_2
+factorial_time_bin_2 <- function(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset = 0) {
+    .Call('_CAB2_factorial_time_bin_2', PACKAGE = 'CAB2', event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset)
+}
+
 #'@export int2bin
 int2bin <- function(digits, integers) {
     .Call('_CAB2_int2bin', PACKAGE = 'CAB2', digits, integers)
