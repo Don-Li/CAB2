@@ -29,6 +29,33 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// factorial_counts
+arma::umat factorial_counts(CharacterVector event, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_breaks);
+RcppExport SEXP _CAB2_factorial_counts(SEXP eventSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_breaksSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type event_labels(event_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_breaks(max_breaksSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorial_counts(event, break_labels, reset_labels, event_labels, max_breaks));
+    return rcpp_result_gen;
+END_RCPP
+}
+// int2bin
+IntegerVector int2bin(int digits, IntegerVector integers);
+RcppExport SEXP _CAB2_int2bin(SEXP digitsSEXP, SEXP integersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type digits(digitsSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type integers(integersSEXP);
+    rcpp_result_gen = Rcpp::wrap(int2bin(digits, integers));
+    return rcpp_result_gen;
+END_RCPP
+}
 // ixyi
 List ixyi(CharacterVector event, NumericVector time, CharacterVector x_events, CharacterVector y_events, CharacterVector break_events);
 RcppExport SEXP _CAB2_ixyi(SEXP eventSEXP, SEXP timeSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP break_eventsSEXP) {
@@ -127,6 +154,8 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_CAB2_EBD_BR", (DL_FUNC) &_CAB2_EBD_BR, 2},
     {"_CAB2_EBD_RS_BR", (DL_FUNC) &_CAB2_EBD_RS_BR, 1},
+    {"_CAB2_factorial_counts", (DL_FUNC) &_CAB2_factorial_counts, 5},
+    {"_CAB2_int2bin", (DL_FUNC) &_CAB2_int2bin, 2},
     {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
     {"_CAB2_ks", (DL_FUNC) &_CAB2_ks, 2},
     {"_CAB2_rcpp_hello", (DL_FUNC) &_CAB2_rcpp_hello, 0},

@@ -11,6 +11,16 @@ EBD_RS_BR <- function(parents) {
     .Call('_CAB2_EBD_RS_BR', PACKAGE = 'CAB2', parents)
 }
 
+#'@export factorial_counts
+factorial_counts <- function(event, break_labels, reset_labels, event_labels, max_breaks) {
+    .Call('_CAB2_factorial_counts', PACKAGE = 'CAB2', event, break_labels, reset_labels, event_labels, max_breaks)
+}
+
+#'@export int2bin
+int2bin <- function(digits, integers) {
+    .Call('_CAB2_int2bin', PACKAGE = 'CAB2', digits, integers)
+}
+
 #'@export ixyi
 ixyi <- function(event, time, x_events, y_events, break_events) {
     .Call('_CAB2_ixyi', PACKAGE = 'CAB2', event, time, x_events, y_events, break_events)
