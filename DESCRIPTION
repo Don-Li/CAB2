@@ -10,10 +10,15 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
 Collate: 
+    'ETBD_reproduction.R'
     'RcppExports.R'
+    'factorial_counts.R'
     'hello.R'
     'help_file.R'
+    'int2bin.R'
     'ixyi.R'
+    'kolmogorov_smirnov.R'
+    'srs.R'
 LinkingTo: Rcpp, RcppArmadillo
 Imports:
     Rcpp,

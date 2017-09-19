@@ -3,7 +3,6 @@
 using namespace Rcpp;
 
 //'@export ixyi
-//'@rdname ixyi
 // [[Rcpp::export]]
 List ixyi( CharacterVector event, NumericVector time, CharacterVector x_events, CharacterVector y_events, CharacterVector break_events ){
 

@@ -6,6 +6,74 @@
 
 using namespace Rcpp;
 
+// EBD_BR
+arma::umat EBD_BR(arma::umat fathers, arma::umat mothers);
+RcppExport SEXP _CAB2_EBD_BR(SEXP fathersSEXP, SEXP mothersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::umat >::type fathers(fathersSEXP);
+    Rcpp::traits::input_parameter< arma::umat >::type mothers(mothersSEXP);
+    rcpp_result_gen = Rcpp::wrap(EBD_BR(fathers, mothers));
+    return rcpp_result_gen;
+END_RCPP
+}
+// EBD_RS_BR
+arma::umat EBD_RS_BR(arma::umat parents);
+RcppExport SEXP _CAB2_EBD_RS_BR(SEXP parentsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::umat >::type parents(parentsSEXP);
+    rcpp_result_gen = Rcpp::wrap(EBD_RS_BR(parents));
+    return rcpp_result_gen;
+END_RCPP
+}
+// factorial_counts
+arma::umat factorial_counts(CharacterVector event, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_breaks);
+RcppExport SEXP _CAB2_factorial_counts(SEXP eventSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_breaksSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type event_labels(event_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_breaks(max_breaksSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorial_counts(event, break_labels, reset_labels, event_labels, max_breaks));
+    return rcpp_result_gen;
+END_RCPP
+}
+// factorial_time_bin_2
+List factorial_time_bin_2(CharacterVector event, NumericVector time, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_bin, double bin_resolution, double offset);
+RcppExport SEXP _CAB2_factorial_time_bin_2(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type time(timeSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type event_labels(event_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_bin(max_binSEXP);
+    Rcpp::traits::input_parameter< double >::type bin_resolution(bin_resolutionSEXP);
+    Rcpp::traits::input_parameter< double >::type offset(offsetSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorial_time_bin_2(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset));
+    return rcpp_result_gen;
+END_RCPP
+}
+// int2bin
+IntegerVector int2bin(int digits, IntegerVector integers);
+RcppExport SEXP _CAB2_int2bin(SEXP digitsSEXP, SEXP integersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type digits(digitsSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type integers(integersSEXP);
+    rcpp_result_gen = Rcpp::wrap(int2bin(digits, integers));
+    return rcpp_result_gen;
+END_RCPP
+}
 // ixyi
 List ixyi(CharacterVector event, NumericVector time, CharacterVector x_events, CharacterVector y_events, CharacterVector break_events);
 RcppExport SEXP _CAB2_ixyi(SEXP eventSEXP, SEXP timeSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP break_eventsSEXP) {
@@ -18,6 +86,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< CharacterVector >::type y_events(y_eventsSEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type break_events(break_eventsSEXP);
     rcpp_result_gen = Rcpp::wrap(ixyi(event, time, x_events, y_events, break_events));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ks
+double ks(arma::colvec sample_1, arma::colvec sample_2);
+RcppExport SEXP _CAB2_ks(SEXP sample_1SEXP, SEXP sample_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::colvec >::type sample_1(sample_1SEXP);
+    Rcpp::traits::input_parameter< arma::colvec >::type sample_2(sample_2SEXP);
+    rcpp_result_gen = Rcpp::wrap(ks(sample_1, sample_2));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -74,14 +154,35 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// srs
+NumericMatrix srs(int choose_max, int repeats, int sample_size, bool replace);
+RcppExport SEXP _CAB2_srs(SEXP choose_maxSEXP, SEXP repeatsSEXP, SEXP sample_sizeSEXP, SEXP replaceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type choose_max(choose_maxSEXP);
+    Rcpp::traits::input_parameter< int >::type repeats(repeatsSEXP);
+    Rcpp::traits::input_parameter< int >::type sample_size(sample_sizeSEXP);
+    Rcpp::traits::input_parameter< bool >::type replace(replaceSEXP);
+    rcpp_result_gen = Rcpp::wrap(srs(choose_max, repeats, sample_size, replace));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_CAB2_EBD_BR", (DL_FUNC) &_CAB2_EBD_BR, 2},
+    {"_CAB2_EBD_RS_BR", (DL_FUNC) &_CAB2_EBD_RS_BR, 1},
+    {"_CAB2_factorial_counts", (DL_FUNC) &_CAB2_factorial_counts, 5},
+    {"_CAB2_factorial_time_bin_2", (DL_FUNC) &_CAB2_factorial_time_bin_2, 8},
+    {"_CAB2_int2bin", (DL_FUNC) &_CAB2_int2bin, 2},
     {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
+    {"_CAB2_ks", (DL_FUNC) &_CAB2_ks, 2},
     {"_CAB2_rcpp_hello", (DL_FUNC) &_CAB2_rcpp_hello, 0},
     {"_CAB2_rcpparma_hello_world", (DL_FUNC) &_CAB2_rcpparma_hello_world, 0},
     {"_CAB2_rcpparma_outerproduct", (DL_FUNC) &_CAB2_rcpparma_outerproduct, 1},
     {"_CAB2_rcpparma_innerproduct", (DL_FUNC) &_CAB2_rcpparma_innerproduct, 1},
     {"_CAB2_rcpparma_bothproducts", (DL_FUNC) &_CAB2_rcpparma_bothproducts, 1},
+    {"_CAB2_srs", (DL_FUNC) &_CAB2_srs, 4},
     {NULL, NULL, 0}
 };
 
