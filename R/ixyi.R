@@ -20,7 +20,7 @@ NULL
 #' }
 #'
 #' @details
-#' When labelling the inter-event intervals, the order of the categories is as they are entered in the \code{x_events} and \code{y_events} arguments. For example, if \code{x_events = c("respR","respL")} and \code{y_events = c("respR","respL") }, then the labels will be ordered: "RR", "RL", "LR", "LL" for the IRTs. These are zero indexed, so \code{0} would label RR IRTs.
+#' When labelling the inter-event intervals, the order of the categories is as they are entered in the \code{x_events} and \code{y_events} arguments. For example, if \code{x_events = c("respR","respL")} and \code{y_events = c("respR","respL") }, then the labels will be ordered: "RR", "RL", "LR", "LL" for the IRTs. These are one-indexed, so \code{1} would label RR IRTs.
 #'
 #' The \code{ixyi_counter} tabulates are in the same order as the labels.
 #'

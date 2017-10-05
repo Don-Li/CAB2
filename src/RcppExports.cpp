@@ -62,6 +62,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// factorial_time_bin
+arma::imat factorial_time_bin(CharacterVector event, NumericVector time, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_bin, double bin_resolution, double offset);
+RcppExport SEXP _CAB2_factorial_time_bin(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type time(timeSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type event_labels(event_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_bin(max_binSEXP);
+    Rcpp::traits::input_parameter< double >::type bin_resolution(bin_resolutionSEXP);
+    Rcpp::traits::input_parameter< double >::type offset(offsetSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorial_time_bin(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset));
+    return rcpp_result_gen;
+END_RCPP
+}
 // int2bin
 IntegerVector int2bin(int digits, IntegerVector integers);
 RcppExport SEXP _CAB2_int2bin(SEXP digitsSEXP, SEXP integersSEXP) {
@@ -174,6 +192,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_CAB2_EBD_RS_BR", (DL_FUNC) &_CAB2_EBD_RS_BR, 1},
     {"_CAB2_factorial_counts", (DL_FUNC) &_CAB2_factorial_counts, 5},
     {"_CAB2_factorial_time_bin_2", (DL_FUNC) &_CAB2_factorial_time_bin_2, 8},
+    {"_CAB2_factorial_time_bin", (DL_FUNC) &_CAB2_factorial_time_bin, 8},
     {"_CAB2_int2bin", (DL_FUNC) &_CAB2_int2bin, 2},
     {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
     {"_CAB2_ks", (DL_FUNC) &_CAB2_ks, 2},
