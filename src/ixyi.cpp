@@ -25,7 +25,7 @@ List ixyi( CharacterVector event, NumericVector time, CharacterVector x_events, 
 
     // Return objects
     std::vector<double> ixyi_container(0);
-    IntegerVector ixyi_indicator(0);
+    std::vector<int> ixyi_indicator(0);
     std::vector<int> ixyi_counter( n_x_types * y_events.length() );
 
     for ( int i = 0; i < i_max; i ++ ){
@@ -46,7 +46,7 @@ List ixyi( CharacterVector event, NumericVector time, CharacterVector x_events, 
                 y_time = time(i);
                 ixyi_container.push_back( y_time - x_time );
                 ixyi_code = n_x_types * x_code + y_code;
-                ixyi_indicator.push_back( ixyi_code );
+                ixyi_indicator.push_back( ixyi_code+1 );
                 ixyi_counter[ ixyi_code ] ++;
                 got_x = false;
             }
@@ -63,6 +63,6 @@ List ixyi( CharacterVector event, NumericVector time, CharacterVector x_events, 
         }
     }
 
-    List return_list = List::create( Named("ixyi") = ixyi_container, Named("ixyi_type") = ixyi_indicator+1, Named("ixyi_counts") = ixyi_counter );
+    List return_list = List::create( Named("ixyi") = ixyi_container, Named("ixyi_type") = ixyi_indicator, Named("ixyi_counts") = ixyi_counter );
     return( return_list );
 }
