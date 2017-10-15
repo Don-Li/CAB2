@@ -5,7 +5,7 @@ using namespace Rcpp;
 //'@export ixyi_table_by_z
 // [[Rcpp::export]]
 arma::imat ixyi_table_by_z(
-    CharacterVector event, NumericVector time,
+    CharacterVector event,
     CharacterVector x_events, CharacterVector y_events,
     CharacterVector reset_labels, CharacterVector break_labels,
     CharacterVector bin_labels, int max_bins ){
@@ -19,7 +19,7 @@ arma::imat ixyi_table_by_z(
     IntegerVector reset_match = match( event, reset_labels );
     IntegerVector bin_match = match( event, bin_labels );
 
-    arma::imat container( n_x_types*n_y_types, max_bins, arma::fill::zeros );
+    arma::imat container( max_bins, n_x_types*n_y_types, arma::fill::zeros );
 
     int i_max = event.length();
     int x_code = 0;
@@ -59,13 +59,12 @@ arma::imat ixyi_table_by_z(
                 if ( match_y(i) != NA_INTEGER ){
                     y_code = match_y(i);
                     ixyi_code = n_x_types * x_code + y_code;
-                    container( ixyi_code, bin ) ++;
+                    container( bin, ixyi_code ) ++;
                     got_x = false;
                 }
 
                 if ( match_x(i) != NA_INTEGER ){
                     x_code = match_x(i);
-                    x_time = time(i);
                     got_x = true;
                 }
             }

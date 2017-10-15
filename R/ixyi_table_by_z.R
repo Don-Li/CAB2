@@ -20,5 +20,4 @@ NULL
 #'
 #' @rdname ixyi_table_by_z
 #' @name ixyi_table_by_z
-
 NULL
