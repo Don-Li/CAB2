@@ -107,6 +107,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// ixyi_table_by_z
+arma::imat ixyi_table_by_z(CharacterVector event, NumericVector time, CharacterVector x_events, CharacterVector y_events, CharacterVector reset_labels, CharacterVector break_labels, CharacterVector bin_labels, int max_bins);
+RcppExport SEXP _CAB2_ixyi_table_by_z(SEXP eventSEXP, SEXP timeSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP reset_labelsSEXP, SEXP break_labelsSEXP, SEXP bin_labelsSEXP, SEXP max_binsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type time(timeSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type x_events(x_eventsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type y_events(y_eventsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type bin_labels(bin_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_bins(max_binsSEXP);
+    rcpp_result_gen = Rcpp::wrap(ixyi_table_by_z(event, time, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins));
+    return rcpp_result_gen;
+END_RCPP
+}
 // ks
 double ks(arma::colvec sample_1, arma::colvec sample_2);
 RcppExport SEXP _CAB2_ks(SEXP sample_1SEXP, SEXP sample_2SEXP) {
@@ -195,6 +213,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_CAB2_factorial_time_bin", (DL_FUNC) &_CAB2_factorial_time_bin, 8},
     {"_CAB2_int2bin", (DL_FUNC) &_CAB2_int2bin, 2},
     {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
+    {"_CAB2_ixyi_table_by_z", (DL_FUNC) &_CAB2_ixyi_table_by_z, 8},
     {"_CAB2_ks", (DL_FUNC) &_CAB2_ks, 2},
     {"_CAB2_rcpp_hello", (DL_FUNC) &_CAB2_rcpp_hello, 0},
     {"_CAB2_rcpparma_hello_world", (DL_FUNC) &_CAB2_rcpparma_hello_world, 0},

@@ -17,6 +17,7 @@ Collate:
     'help_file.R'
     'int2bin.R'
     'ixyi.R'
+    'ixyi_table_by_z.R'
     'kolmogorov_smirnov.R'
     'srs.R'
 LinkingTo: Rcpp, RcppArmadillo

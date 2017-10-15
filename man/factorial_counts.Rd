@@ -90,3 +90,6 @@ pp = lapply( counter, function(x) log( x[,1]/x[,2] ) )
 \references{
 Davison, M., & Baum, W. M. (2000). Choice in a variable environment: Every reinforcer counts. Journal of the Experimental Analysis of Behavior, 74(1), 1-24. \href{https://doi.org/10.1901/jeab.2000.74-1}{https://doi.org/10.1901/jeab.2000.74-1}
 }
+\seealso{
+\link{ixyi_table_by_z} for tabulating ixyi's as a function of another variable.
+}

@@ -36,6 +36,11 @@ ixyi <- function(event, time, x_events, y_events, break_events) {
     .Call('_CAB2_ixyi', PACKAGE = 'CAB2', event, time, x_events, y_events, break_events)
 }
 
+#'@export ixyi_table_by_z
+ixyi_table_by_z <- function(event, time, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins) {
+    .Call('_CAB2_ixyi_table_by_z', PACKAGE = 'CAB2', event, time, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins)
+}
+
 #'@export ks
 ks <- function(sample_1, sample_2) {
     .Call('_CAB2_ks', PACKAGE = 'CAB2', sample_1, sample_2)
