@@ -62,6 +62,7 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
 // factorial_time_bin
 arma::imat factorial_time_bin(CharacterVector event, NumericVector time, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_bin, double bin_resolution, double offset);
 RcppExport SEXP _CAB2_factorial_time_bin(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
@@ -80,6 +81,7 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
 // int2bin
 IntegerVector int2bin(int digits, IntegerVector integers);
 RcppExport SEXP _CAB2_int2bin(SEXP digitsSEXP, SEXP integersSEXP) {
@@ -107,6 +109,7 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
 // ixyi_table_by_z
 arma::imat ixyi_table_by_z(CharacterVector event, CharacterVector x_events, CharacterVector y_events, CharacterVector reset_labels, CharacterVector break_labels, CharacterVector bin_labels, int max_bins);
 RcppExport SEXP _CAB2_ixyi_table_by_z(SEXP eventSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP reset_labelsSEXP, SEXP break_labelsSEXP, SEXP bin_labelsSEXP, SEXP max_binsSEXP) {
@@ -124,6 +127,7 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
 // ks
 double ks(arma::colvec sample_1, arma::colvec sample_2);
 RcppExport SEXP _CAB2_ks(SEXP sample_1SEXP, SEXP sample_2SEXP) {
@@ -213,6 +217,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_CAB2_int2bin", (DL_FUNC) &_CAB2_int2bin, 2},
     {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
     {"_CAB2_ixyi_table_by_z", (DL_FUNC) &_CAB2_ixyi_table_by_z, 7},
+    {"_CAB2_int2bin", (DL_FUNC) &_CAB2_int2bin, 2},
+    {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
     {"_CAB2_ks", (DL_FUNC) &_CAB2_ks, 2},
     {"_CAB2_rcpp_hello", (DL_FUNC) &_CAB2_rcpp_hello, 0},
     {"_CAB2_rcpparma_hello_world", (DL_FUNC) &_CAB2_rcpparma_hello_world, 0},

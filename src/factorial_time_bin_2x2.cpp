@@ -18,6 +18,7 @@ List factorial_time_bin_2(
     time = floor( time / bin_resolution );
     arma::uvec time_bins = as<arma::uvec>( time );
 
+
     int response_len = event_labels.length();
 
     arma::umat response_matrix1( n_bins, response_len, arma::fill::zeros );

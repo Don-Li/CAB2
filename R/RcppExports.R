@@ -25,7 +25,6 @@ factorial_time_bin_2 <- function(event, time, break_labels, reset_labels, event_
 factorial_time_bin <- function(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset = 0) {
     .Call('_CAB2_factorial_time_bin', PACKAGE = 'CAB2', event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset)
 }
-
 #'@export int2bin
 int2bin <- function(digits, integers) {
     .Call('_CAB2_int2bin', PACKAGE = 'CAB2', digits, integers)
