@@ -4,6 +4,10 @@
 \alias{ixyi}
 \alias{inter_event_interval}
 \title{Compute the time between events.}
+\usage{
+ixyi( event, time, x_events, y_events, break_events )
+}
+
 \arguments{
 \item{time}{A numeric vector of times.}
 
@@ -27,7 +31,7 @@ Returns a list containing three vectors:
 Compute the time between two events. This is useful for computing things like IRTs (time between the same kind of response), changeover times (times between different kinds of responses), PRPs, etc.
 }
 \details{
-When labelling the inter-event intervals, the order of the categories is as they are entered in the \code{x_events} and \code{y_events} arguments. For example, if \code{x_events = c("respR","respL")} and \code{y_events = c("respR","respL") }, then the labels will be ordered: "RR", "RL", "LR", "LL" for the IRTs. These are zero indexed, so \code{0} would label RR IRTs.
+When labelling the inter-event intervals, the order of the categories is as they are entered in the \code{x_events} and \code{y_events} arguments. For example, if \code{x_events = c("respR","respL")} and \code{y_events = c("respR","respL") }, then the labels will be ordered: "RR", "RL", "LR", "LL" for the IRTs. These are one-indexed, so \code{1} would label RR IRTs.
 
 The \code{ixyi_counter} tabulates are in the same order as the labels.
 }
@@ -49,4 +53,7 @@ events2 = c( "respL", "respR", "respR", "rft", "respR", "respR", "respL", "rft",
 irts3 = ixyi( events2, time, c("respR","respL"), c("respR","respL"), "rft" )
 # Two R-R IRTs, one L-R IRT, and one R-L IRT
 }
+}
+\seealso{
+\link{ixyi_table_by_z} for tabulating ixyi's as a function of another variable.
 }

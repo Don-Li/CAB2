@@ -46,7 +46,7 @@ List ixyi( CharacterVector event, NumericVector time, CharacterVector x_events, 
                 y_time = time(i);
                 ixyi_container.push_back( y_time - x_time );
                 ixyi_code = n_x_types * x_code + y_code;
-                ixyi_indicator.push_back( ixyi_code );
+                ixyi_indicator.push_back( ixyi_code+1 );
                 ixyi_counter[ ixyi_code ] ++;
                 got_x = false;
             }

@@ -21,6 +21,10 @@ factorial_time_bin_2 <- function(event, time, break_labels, reset_labels, event_
     .Call('_CAB2_factorial_time_bin_2', PACKAGE = 'CAB2', event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset)
 }
 
+#'@export factorial_time_bin
+factorial_time_bin <- function(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset = 0) {
+    .Call('_CAB2_factorial_time_bin', PACKAGE = 'CAB2', event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset)
+}
 #'@export int2bin
 int2bin <- function(digits, integers) {
     .Call('_CAB2_int2bin', PACKAGE = 'CAB2', digits, integers)
@@ -29,6 +33,11 @@ int2bin <- function(digits, integers) {
 #'@export ixyi
 ixyi <- function(event, time, x_events, y_events, break_events) {
     .Call('_CAB2_ixyi', PACKAGE = 'CAB2', event, time, x_events, y_events, break_events)
+}
+
+#'@export ixyi_table_by_z
+ixyi_table_by_z <- function(event, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins) {
+    .Call('_CAB2_ixyi_table_by_z', PACKAGE = 'CAB2', event, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins)
 }
 
 #'@export ks

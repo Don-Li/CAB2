@@ -4,6 +4,10 @@
 #'
 #' Count the number of events within segments of the event record separated by \code{break_labels} and initiated by \code{reset_labels}.
 #'
+#' #' @usage factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
+#' @usage factorial_time_bin_2( event, time, break_labels, reset_labels,
+#'     event_labels, max_bin, bin_resolution, offset )
+#'
 #' @param event A character vector of events.
 #' @param break_labels A character vector of break events.
 #' @param reset_labels A character vector of reset events.
@@ -12,10 +16,7 @@
 #' @param time A numeric vector of times.
 #' @param max_bin An integer specifying the time at the last time bin.
 #' @param bin_resolution A double specifying the bin resolution.
-#' @param offset A double specifying the offset (see examples).
-#'
-#' @usage factorial_counts( event, time, break_label, reset_label, event_labels, max_rfts )
-#' @usage factorial_time_bin_2x2( event, time, break_lavels, reset_labels, event_labels, max_bin, bin_resolution, offset )
+#' @param offset A double specifying the offset (see examples).'
 #'
 #' @details
 #' \code{factorial_counts} counts the number of events in \code{event_labels} that are in the event record, in segments that are initiated by \code{reset_labels} and separated by \code{event_labels}. For example, consider a multiple schedule that lasts 10 reinforcer deliveries (\code{rft}), where each component is initiated by a stimulus change (\code{comp_start}). \code{factorial_counts()} could be used to compute the number of responses within each inter-reinforcer interval for each component. See examples.
@@ -26,6 +27,9 @@
 #' A \code{n x m} matrix, where \code{n} is \code{max_breaks} while \code{m} is the number of event types in \code{event_labels}.
 #'
 #' \code{factorial_time_bin_2} bins events in time bins. The time bins are represented as a \code{ n x 2 } matrix, where \code{n} is the number of bins and each column holds the counts for each element of \code{event_labels}. One matrix of time bins is constructed for each element of \code{break_labels}. The combined result is returned as a list.
+#'
+#' @seealso
+#' \link{ixyi_table_by_z} for tabulating ixyi's as a function of another variable.
 #'
 #' @examples
 #' \dontrun{
