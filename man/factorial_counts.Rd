@@ -5,9 +5,7 @@
 \alias{factorial_time_bin_2}
 \title{Factorial counts}
 \usage{
-factorial_time_bin_2( event, time, break_labels, reset_labels,
-    event_labels, max_bin, bin_resolution, offset )
-
+factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
 }
 \arguments{
 \item{event}{A character vector of events.}
@@ -26,8 +24,7 @@ factorial_time_bin_2( event, time, break_labels, reset_labels,
 
 \item{bin_resolution}{A double specifying the bin resolution.}
 
-\item{offset}{A double specifying the offset (see examples).}
-
+\item{offset}{A double specifying the offset (see examples).'}
 }
 \value{
 A \code{n x m} matrix, where \code{n} is \code{max_breaks} while \code{m} is the number of event types in \code{event_labels}.
