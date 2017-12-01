@@ -7,7 +7,6 @@
 \usage{
 ixyi( event, time, x_events, y_events, break_events )
 }
-
 \arguments{
 \item{time}{A numeric vector of times.}
 

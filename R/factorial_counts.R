@@ -4,7 +4,7 @@
 #'
 #' Count the number of events within segments of the event record separated by \code{break_labels} and initiated by \code{reset_labels}.
 #'
-#' #' @usage factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
+#' @usage factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
 #' @usage factorial_time_bin_2( event, time, break_labels, reset_labels,
 #'     event_labels, max_bin, bin_resolution, offset )
 #'

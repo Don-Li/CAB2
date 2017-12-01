@@ -25,6 +25,7 @@ factorial_time_bin_2 <- function(event, time, break_labels, reset_labels, event_
 factorial_time_bin <- function(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset = 0) {
     .Call('_CAB2_factorial_time_bin', PACKAGE = 'CAB2', event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset)
 }
+
 #'@export int2bin
 int2bin <- function(digits, integers) {
     .Call('_CAB2_int2bin', PACKAGE = 'CAB2', digits, integers)
@@ -63,6 +64,16 @@ rcpparma_innerproduct <- function(x) {
 
 rcpparma_bothproducts <- function(x) {
     .Call('_CAB2_rcpparma_bothproducts', PACKAGE = 'CAB2', x)
+}
+
+#'@export row_match
+row_match <- function(mat, ref) {
+    .Call('_CAB2_row_match', PACKAGE = 'CAB2', mat, ref)
+}
+
+#'@export row_match1
+row_match1 <- function(mat, ref) {
+    .Call('_CAB2_row_match1', PACKAGE = 'CAB2', mat, ref)
 }
 
 #'@export srs

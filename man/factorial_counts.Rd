@@ -5,9 +5,7 @@
 \alias{factorial_time_bin_2}
 \title{Factorial counts}
 \usage{
-factorial_time_bin_2( event, time, break_labels, reset_labels,
-    event_labels, max_bin, bin_resolution, offset )
-
+factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
 }
 \arguments{
 \item{event}{A character vector of events.}
@@ -26,8 +24,7 @@ factorial_time_bin_2( event, time, break_labels, reset_labels,
 
 \item{bin_resolution}{A double specifying the bin resolution.}
 
-\item{offset}{A double specifying the offset (see examples).}
-
+\item{offset}{A double specifying the offset (see examples).'}
 }
 \value{
 A \code{n x m} matrix, where \code{n} is \code{max_breaks} while \code{m} is the number of event types in \code{event_labels}.
@@ -38,8 +35,6 @@ A \code{n x m} matrix, where \code{n} is \code{max_breaks} while \code{m} is the
 Count the number of events within segments of the event record separated by \code{break_labels} and initiated by \code{reset_labels}.
 }
 \details{
-#' @usage factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
-
 \code{factorial_counts} counts the number of events in \code{event_labels} that are in the event record, in segments that are initiated by \code{reset_labels} and separated by \code{event_labels}. For example, consider a multiple schedule that lasts 10 reinforcer deliveries (\code{rft}), where each component is initiated by a stimulus change (\code{comp_start}). \code{factorial_counts()} could be used to compute the number of responses within each inter-reinforcer interval for each component. See examples.
 
 \code{factorial_time_bin_2} counts the number of events in \code{event_labels} for two types of events that are in the event record, in segments initated by \code{reset_labels} and separated by the two types of events in \code{event_labels}. Consider a concurrent VI VI schedule run inside of a mixed schedule like that of Davison and Baum (2000).
