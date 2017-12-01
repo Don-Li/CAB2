@@ -9,7 +9,7 @@ double ks( arma::colvec sample_1, arma::colvec sample_2 ){
     double n1 = sample_1.n_rows;
     double n2 = sample_2.n_rows;
 
-    if ( n1 < 1 | n2 < 1 ){
+    if ( (n1 < 1) | (n2 < 1) ){
         return( R_PosInf );
     }
 
