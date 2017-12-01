@@ -24,8 +24,6 @@ arma::imat ixyi_table_by_z(
     int i_max = event.length();
     int x_code = 0;
     int y_code = 0;
-    double x_time = 0;
-    double y_time = 0;
     int ixyi_code = 0;
     bool got_x = false;
     int bin = -1;
