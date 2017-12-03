@@ -5,13 +5,16 @@ NULL
 #'
 #' Compute the time between two events. This is useful for computing things like IRTs (time between the same kind of response), changeover times (times between different kinds of responses), PRPs, etc.
 #'
+#' ixyi() is provided for numeric arguments. ixyi_() is provided when \code{event}, \code{x_events}, \code{y_events}, \code{break_labels} are character vectors. Note that ixyi() is much faster for long vectors.
+#'
 #' @usage ixyi( event, time, x_events, y_events, break_events )
+#' @usage ixyi_( event, time, x_events, y_events, break_events )
 #'
 #' @param time A numeric vector of times.
-#' @param event A character vector of events.
-#' @param x_events A character vector naming the event that starts the inter-event interval.
-#' @param y_events A character vector naming the event that terminates the inter-event interval.
-#' @param break_labels A character vector of events that break the inter-event interval.
+#' @param event A numeric vector of events.
+#' @param x_events A numeric vector naming the event that starts the inter-event interval.
+#' @param y_events A numeric vector naming the event that terminates the inter-event interval.
+#' @param break_labels A numeric vector of events that break the inter-event interval.
 #'
 #' @return
 #' Returns a list containing three vectors:
@@ -42,16 +45,16 @@ NULL
 #' time = 1:10*0.5
 #' events = c( rep( "resp", 3), "rft", rep( "resp", 3), "rft", "resp" )
 #' # Calcualte IRTs without considering intervening reinforcer deliveries
-#' irts1 = ixyi( events, time, "resp", "resp", "" )
+#' irts1 = ixyi_( events, time, "resp", "resp", "" )
 #' # Account for intervening reinforcer deliveries
-#' irts2 = ixyi( events, time, "resp", "resp", "rft" )
+#' irts2 = ixyi_( events, time, "resp", "resp", "rft" )
 #'
 #' # Compute the PRPs
-#' prps = ixyi( events, time, "rft", "resp", "" )
+#' prps = ixyi_( events, time, "rft", "resp", "" )
 #'
 #' # If we have a concurrent schedule, we have IRTs between LL, LR, RL, and RR responses
 #' events2 = c( "respL", "respR", "respR", "rft", "respR", "respR", "respL", "rft", "respR" )
-#' irts3 = ixyi( events2, time, c("respR","respL"), c("respR","respL"), "rft" )
+#' irts3 = ixyi_( events2, time, c("respR","respL"), c("respR","respL"), "rft" )
 #' # Two R-R IRTs, one L-R IRT, and one R-L IRT
 #' }
 

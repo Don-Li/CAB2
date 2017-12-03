@@ -29,9 +29,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// factorial_counts
-arma::umat factorial_counts(CharacterVector event, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_breaks);
-RcppExport SEXP _CAB2_factorial_counts(SEXP eventSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_breaksSEXP) {
+// factorial_counts_
+arma::umat factorial_counts_(CharacterVector event, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_breaks);
+RcppExport SEXP _CAB2_factorial_counts_(SEXP eventSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_breaksSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -40,13 +40,28 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< CharacterVector >::type reset_labels(reset_labelsSEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type event_labels(event_labelsSEXP);
     Rcpp::traits::input_parameter< int >::type max_breaks(max_breaksSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorial_counts_(event, break_labels, reset_labels, event_labels, max_breaks));
+    return rcpp_result_gen;
+END_RCPP
+}
+// factorial_counts
+arma::umat factorial_counts(NumericVector event, NumericVector break_labels, NumericVector reset_labels, NumericVector event_labels, int max_breaks);
+RcppExport SEXP _CAB2_factorial_counts(SEXP eventSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_breaksSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type event_labels(event_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_breaks(max_breaksSEXP);
     rcpp_result_gen = Rcpp::wrap(factorial_counts(event, break_labels, reset_labels, event_labels, max_breaks));
     return rcpp_result_gen;
 END_RCPP
 }
-// factorial_time_bin_2
-List factorial_time_bin_2(CharacterVector event, NumericVector time, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_bin, double bin_resolution, double offset);
-RcppExport SEXP _CAB2_factorial_time_bin_2(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
+// factorial_time_bin_2_
+List factorial_time_bin_2_(CharacterVector event, NumericVector time, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_bin, double bin_resolution, double offset);
+RcppExport SEXP _CAB2_factorial_time_bin_2_(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -58,13 +73,31 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type max_bin(max_binSEXP);
     Rcpp::traits::input_parameter< double >::type bin_resolution(bin_resolutionSEXP);
     Rcpp::traits::input_parameter< double >::type offset(offsetSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorial_time_bin_2_(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset));
+    return rcpp_result_gen;
+END_RCPP
+}
+// factorial_time_bin_2
+List factorial_time_bin_2(NumericVector event, NumericVector time, NumericVector break_labels, NumericVector reset_labels, NumericVector event_labels, int max_bin, double bin_resolution, double offset);
+RcppExport SEXP _CAB2_factorial_time_bin_2(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type time(timeSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type event_labels(event_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_bin(max_binSEXP);
+    Rcpp::traits::input_parameter< double >::type bin_resolution(bin_resolutionSEXP);
+    Rcpp::traits::input_parameter< double >::type offset(offsetSEXP);
     rcpp_result_gen = Rcpp::wrap(factorial_time_bin_2(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset));
     return rcpp_result_gen;
 END_RCPP
 }
-// factorial_time_bin
-arma::imat factorial_time_bin(CharacterVector event, NumericVector time, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_bin, double bin_resolution, double offset);
-RcppExport SEXP _CAB2_factorial_time_bin(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
+// factorial_time_bin_
+arma::imat factorial_time_bin_(CharacterVector event, NumericVector time, CharacterVector break_labels, CharacterVector reset_labels, CharacterVector event_labels, int max_bin, double bin_resolution, double offset);
+RcppExport SEXP _CAB2_factorial_time_bin_(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -73,6 +106,24 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< CharacterVector >::type break_labels(break_labelsSEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type reset_labels(reset_labelsSEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type event_labels(event_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_bin(max_binSEXP);
+    Rcpp::traits::input_parameter< double >::type bin_resolution(bin_resolutionSEXP);
+    Rcpp::traits::input_parameter< double >::type offset(offsetSEXP);
+    rcpp_result_gen = Rcpp::wrap(factorial_time_bin_(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset));
+    return rcpp_result_gen;
+END_RCPP
+}
+// factorial_time_bin
+arma::imat factorial_time_bin(NumericVector event, NumericVector time, NumericVector break_labels, NumericVector reset_labels, NumericVector event_labels, int max_bin, double bin_resolution, double offset);
+RcppExport SEXP _CAB2_factorial_time_bin(SEXP eventSEXP, SEXP timeSEXP, SEXP break_labelsSEXP, SEXP reset_labelsSEXP, SEXP event_labelsSEXP, SEXP max_binSEXP, SEXP bin_resolutionSEXP, SEXP offsetSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type time(timeSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type event_labels(event_labelsSEXP);
     Rcpp::traits::input_parameter< int >::type max_bin(max_binSEXP);
     Rcpp::traits::input_parameter< double >::type bin_resolution(bin_resolutionSEXP);
     Rcpp::traits::input_parameter< double >::type offset(offsetSEXP);
@@ -92,9 +143,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// ixyi
-List ixyi(CharacterVector event, NumericVector time, CharacterVector x_events, CharacterVector y_events, CharacterVector break_events);
-RcppExport SEXP _CAB2_ixyi(SEXP eventSEXP, SEXP timeSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP break_eventsSEXP) {
+// ixyi_
+List ixyi_(CharacterVector event, NumericVector time, CharacterVector x_events, CharacterVector y_events, CharacterVector break_events);
+RcppExport SEXP _CAB2_ixyi_(SEXP eventSEXP, SEXP timeSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP break_eventsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -103,13 +154,28 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< CharacterVector >::type x_events(x_eventsSEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type y_events(y_eventsSEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type break_events(break_eventsSEXP);
+    rcpp_result_gen = Rcpp::wrap(ixyi_(event, time, x_events, y_events, break_events));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ixyi
+List ixyi(NumericVector event, NumericVector time, NumericVector x_events, NumericVector y_events, NumericVector break_events);
+RcppExport SEXP _CAB2_ixyi(SEXP eventSEXP, SEXP timeSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP break_eventsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type time(timeSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type x_events(x_eventsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type y_events(y_eventsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type break_events(break_eventsSEXP);
     rcpp_result_gen = Rcpp::wrap(ixyi(event, time, x_events, y_events, break_events));
     return rcpp_result_gen;
 END_RCPP
 }
-// ixyi_table_by_z
-arma::imat ixyi_table_by_z(CharacterVector event, CharacterVector x_events, CharacterVector y_events, CharacterVector reset_labels, CharacterVector break_labels, CharacterVector bin_labels, int max_bins);
-RcppExport SEXP _CAB2_ixyi_table_by_z(SEXP eventSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP reset_labelsSEXP, SEXP break_labelsSEXP, SEXP bin_labelsSEXP, SEXP max_binsSEXP) {
+// ixyi_table_by_z_
+arma::imat ixyi_table_by_z_(CharacterVector event, CharacterVector x_events, CharacterVector y_events, CharacterVector reset_labels, CharacterVector break_labels, CharacterVector bin_labels, int max_bins);
+RcppExport SEXP _CAB2_ixyi_table_by_z_(SEXP eventSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP reset_labelsSEXP, SEXP break_labelsSEXP, SEXP bin_labelsSEXP, SEXP max_binsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -119,6 +185,23 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< CharacterVector >::type reset_labels(reset_labelsSEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type break_labels(break_labelsSEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type bin_labels(bin_labelsSEXP);
+    Rcpp::traits::input_parameter< int >::type max_bins(max_binsSEXP);
+    rcpp_result_gen = Rcpp::wrap(ixyi_table_by_z_(event, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ixyi_table_by_z
+arma::imat ixyi_table_by_z(NumericVector event, NumericVector x_events, NumericVector y_events, NumericVector reset_labels, NumericVector break_labels, NumericVector bin_labels, int max_bins);
+RcppExport SEXP _CAB2_ixyi_table_by_z(SEXP eventSEXP, SEXP x_eventsSEXP, SEXP y_eventsSEXP, SEXP reset_labelsSEXP, SEXP break_labelsSEXP, SEXP bin_labelsSEXP, SEXP max_binsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type event(eventSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type x_events(x_eventsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type y_events(y_eventsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type reset_labels(reset_labelsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type break_labels(break_labelsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type bin_labels(bin_labelsSEXP);
     Rcpp::traits::input_parameter< int >::type max_bins(max_binsSEXP);
     rcpp_result_gen = Rcpp::wrap(ixyi_table_by_z(event, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins));
     return rcpp_result_gen;
@@ -231,11 +314,16 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_CAB2_EBD_BR", (DL_FUNC) &_CAB2_EBD_BR, 2},
     {"_CAB2_EBD_RS_BR", (DL_FUNC) &_CAB2_EBD_RS_BR, 1},
+    {"_CAB2_factorial_counts_", (DL_FUNC) &_CAB2_factorial_counts_, 5},
     {"_CAB2_factorial_counts", (DL_FUNC) &_CAB2_factorial_counts, 5},
+    {"_CAB2_factorial_time_bin_2_", (DL_FUNC) &_CAB2_factorial_time_bin_2_, 8},
     {"_CAB2_factorial_time_bin_2", (DL_FUNC) &_CAB2_factorial_time_bin_2, 8},
+    {"_CAB2_factorial_time_bin_", (DL_FUNC) &_CAB2_factorial_time_bin_, 8},
     {"_CAB2_factorial_time_bin", (DL_FUNC) &_CAB2_factorial_time_bin, 8},
     {"_CAB2_int2bin", (DL_FUNC) &_CAB2_int2bin, 2},
+    {"_CAB2_ixyi_", (DL_FUNC) &_CAB2_ixyi_, 5},
     {"_CAB2_ixyi", (DL_FUNC) &_CAB2_ixyi, 5},
+    {"_CAB2_ixyi_table_by_z_", (DL_FUNC) &_CAB2_ixyi_table_by_z_, 7},
     {"_CAB2_ixyi_table_by_z", (DL_FUNC) &_CAB2_ixyi_table_by_z, 7},
     {"_CAB2_ks", (DL_FUNC) &_CAB2_ks, 2},
     {"_CAB2_rcpp_hello", (DL_FUNC) &_CAB2_rcpp_hello, 0},

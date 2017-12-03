@@ -8,13 +8,13 @@
 factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
 }
 \arguments{
-\item{event}{A character vector of events.}
+\item{event}{A numeric vector of events.}
 
-\item{break_labels}{A character vector of break events.}
+\item{break_labels}{A numeric vector of break events.}
 
-\item{reset_labels}{A character vector of reset events.}
+\item{reset_labels}{A numeric vector of reset events.}
 
-\item{event_labels}{A character vector of events to tabulate.}
+\item{event_labels}{A numeric vector of events to tabulate.}
 
 \item{max_breaks}{An integer specifying the number of break events within a segment of the event record.}
 
@@ -35,7 +35,8 @@ A \code{n x m} matrix, where \code{n} is \code{max_breaks} while \code{m} is the
 Count the number of events within segments of the event record separated by \code{break_labels} and initiated by \code{reset_labels}.
 }
 \details{
-#' @usage factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
+factorial_counts() is for numeric arguments. factorial_counts_() is used when \code{event}, \code{break_labels}, \code{reset_labels}, {event_labels} are character vectors. Same applies to factorial_time_bin_2()
+
 
 \code{factorial_counts} counts the number of events in \code{event_labels} that are in the event record, in segments that are initiated by \code{reset_labels} and separated by \code{event_labels}. For example, consider a multiple schedule that lasts 10 reinforcer deliveries (\code{rft}), where each component is initiated by a stimulus change (\code{comp_start}). \code{factorial_counts()} could be used to compute the number of responses within each inter-reinforcer interval for each component. See examples.
 
@@ -57,11 +58,11 @@ event = c(
     )
 #In the zeroth IRI there were 10 instances of "resp1" and 10 instances of "resp2"
 #In the first IRI there were 6 instances of "resp1" and 5 of "resp2"
-counts = factorial_counts( event, "rft", "comp_start", c("resp2", "resp1"), 2 )
+counts = factorial_counts_( event, "rft", "comp_start", c("resp2", "resp1"), 2 )
 #Note that the order of the columns is c("resp2", "resp1")
 
 # If we want to ignore the reinforcer deliveries to get the total number of each type of response
-counts2 = factorial_counts( event, "rft", "comp_start", c("resp2", "resp1"), 2 )
+counts2 = factorial_counts_( event, "rft", "comp_start", c("resp2", "resp1"), 2 )
 # We can use a more efficient function for this though.
 
 # Bin events into time bins
@@ -77,7 +78,7 @@ events[ 25 ] = "comp_start"
 
 times[ rft_deliveries+1 ] = times[ rft_deliveries+1 ] + 1
 times = cumsum(times)
-counter = factorial_time_bin_2(
+counter = factorial_time_bin_2_(
    event = events, time = times,
    break_labels = c("rftL", "rftR"), reset_labels = "comp_start",
    event_labels = c("respL","respR"), max_bin = 5,

@@ -11,14 +11,29 @@ EBD_RS_BR <- function(parents) {
     .Call('_CAB2_EBD_RS_BR', PACKAGE = 'CAB2', parents)
 }
 
+#'@export factorial_counts_
+factorial_counts_ <- function(event, break_labels, reset_labels, event_labels, max_breaks) {
+    .Call('_CAB2_factorial_counts_', PACKAGE = 'CAB2', event, break_labels, reset_labels, event_labels, max_breaks)
+}
+
 #'@export factorial_counts
 factorial_counts <- function(event, break_labels, reset_labels, event_labels, max_breaks) {
     .Call('_CAB2_factorial_counts', PACKAGE = 'CAB2', event, break_labels, reset_labels, event_labels, max_breaks)
 }
 
+#'@export factorial_time_bin_2_
+factorial_time_bin_2_ <- function(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset = 0) {
+    .Call('_CAB2_factorial_time_bin_2_', PACKAGE = 'CAB2', event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset)
+}
+
 #'@export factorial_time_bin_2
 factorial_time_bin_2 <- function(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset = 0) {
     .Call('_CAB2_factorial_time_bin_2', PACKAGE = 'CAB2', event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset)
+}
+
+#'@export factorial_time_bin_
+factorial_time_bin_ <- function(event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset = 0) {
+    .Call('_CAB2_factorial_time_bin_', PACKAGE = 'CAB2', event, time, break_labels, reset_labels, event_labels, max_bin, bin_resolution, offset)
 }
 
 #'@export factorial_time_bin
@@ -31,9 +46,19 @@ int2bin <- function(digits, integers) {
     .Call('_CAB2_int2bin', PACKAGE = 'CAB2', digits, integers)
 }
 
+#'@export ixyi_
+ixyi_ <- function(event, time, x_events, y_events, break_events) {
+    .Call('_CAB2_ixyi_', PACKAGE = 'CAB2', event, time, x_events, y_events, break_events)
+}
+
 #'@export ixyi
 ixyi <- function(event, time, x_events, y_events, break_events) {
     .Call('_CAB2_ixyi', PACKAGE = 'CAB2', event, time, x_events, y_events, break_events)
+}
+
+#'@export ixyi_table_by_z_
+ixyi_table_by_z_ <- function(event, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins) {
+    .Call('_CAB2_ixyi_table_by_z_', PACKAGE = 'CAB2', event, x_events, y_events, reset_labels, break_labels, bin_labels, max_bins)
 }
 
 #'@export ixyi_table_by_z

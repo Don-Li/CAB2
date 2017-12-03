@@ -4,14 +4,19 @@
 #'
 #' Count the number of events within segments of the event record separated by \code{break_labels} and initiated by \code{reset_labels}.
 #'
+#' factorial_counts() is for numeric arguments. factorial_counts_() is used when \code{event}, \code{break_labels}, \code{reset_labels}, {event_labels} are character vectors. Same applies to factorial_time_bin_2()
+#'
 #' @usage factorial_counts( event, break_labels, reset_labels, event_labels, max_breaks )
+#' @usage factorial_counts_( event, break_labels, reset_labels, event_labels, max_breaks )
 #' @usage factorial_time_bin_2( event, time, break_labels, reset_labels,
 #'     event_labels, max_bin, bin_resolution, offset )
+#' @usage factorial_time_bin_2_( event, time, break_labels, reset_labels,
+#'     event_labels, max_bin, bin_resolution, offset )
 #'
-#' @param event A character vector of events.
-#' @param break_labels A character vector of break events.
-#' @param reset_labels A character vector of reset events.
-#' @param event_labels A character vector of events to tabulate.
+#' @param event A numeric vector of events.
+#' @param break_labels A numeric vector of break events.
+#' @param reset_labels A numeric vector of reset events.
+#' @param event_labels A numeric vector of events to tabulate.
 #' @param max_breaks An integer specifying the number of break events within a segment of the event record.
 #' @param time A numeric vector of times.
 #' @param max_bin An integer specifying the time at the last time bin.
@@ -47,11 +52,11 @@
 #'     )
 #' #In the zeroth IRI there were 10 instances of "resp1" and 10 instances of "resp2"
 #' #In the first IRI there were 6 instances of "resp1" and 5 of "resp2"
-#' counts = factorial_counts( event, "rft", "comp_start", c("resp2", "resp1"), 2 )
+#' counts = factorial_counts_( event, "rft", "comp_start", c("resp2", "resp1"), 2 )
 #' #Note that the order of the columns is c("resp2", "resp1")
 #'
 #' # If we want to ignore the reinforcer deliveries to get the total number of each type of response
-#' counts2 = factorial_counts( event, "rft", "comp_start", c("resp2", "resp1"), 2 )
+#' counts2 = factorial_counts_( event, "rft", "comp_start", c("resp2", "resp1"), 2 )
 #' # We can use a more efficient function for this though.
 #'
 #' # Bin events into time bins
@@ -67,7 +72,7 @@
 #'
 #' times[ rft_deliveries+1 ] = times[ rft_deliveries+1 ] + 1
 #' times = cumsum(times)
-#' counter = factorial_time_bin_2(
+#' counter = factorial_time_bin_2_(
 #'    event = events, time = times,
 #'    break_labels = c("rftL", "rftR"), reset_labels = "comp_start",
 #'    event_labels = c("respL","respR"), max_bin = 5,
