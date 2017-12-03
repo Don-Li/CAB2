@@ -15,9 +15,7 @@ List factorial_time_bin_2(
     IntegerVector resp_match = match( event, event_labels ) - 1;
 
     int n_bins = floor( max_bin / bin_resolution );
-    time = floor( time / bin_resolution );
-    arma::uvec time_bins = as<arma::uvec>( time );
-
+    NumericVector time_bins = floor( time/bin_resolution );
 
     int response_len = event_labels.length();
 
