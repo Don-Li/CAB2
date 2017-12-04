@@ -15,15 +15,14 @@ List factorial_time_bin_2_(
     IntegerVector resp_match = match( event, event_labels ) - 1;
 
     int n_bins = floor( max_bin / bin_resolution );
-    NumericVector time_bins = floor( time/bin_resolution );
 
     int response_len = event_labels.length();
 
     arma::umat response_matrix1( n_bins, response_len, arma::fill::zeros );
     arma::umat response_matrix2( n_bins, response_len, arma::fill::zeros );
 
-    int rft_time = 0;
-    int response_time = 0;
+    double rft_time = 0;
+    double response_time = 0;
 
     int last_food_loc = 0;
     int component_rft = 0;
@@ -35,12 +34,12 @@ List factorial_time_bin_2_(
         }
         if ( rft_match(i) != NA_INTEGER ){
             component_rft += 1;
-            rft_time = time_bins(i);
+            rft_time = time(i);
             last_food_loc = rft_match(i);
         }
         if ( component_rft > 0 ){
             if ( resp_match(i) != NA_INTEGER ){
-                response_time = time_bins(i) - rft_time - offset;
+                response_time = floor( ( time(i) - rft_time - offset )/bin_resolution );
                 if ( response_time < n_bins ){
                     if ( last_food_loc == 1 ){
                         response_matrix1( response_time, resp_match(i) ) ++;
@@ -67,19 +66,17 @@ List factorial_time_bin_2(
     IntegerVector resp_match = match( event, event_labels ) - 1;
 
     int n_bins = floor( max_bin / bin_resolution );
-    NumericVector time_bins = floor( time/bin_resolution );
 
     int response_len = event_labels.length();
 
     arma::umat response_matrix1( n_bins, response_len, arma::fill::zeros );
     arma::umat response_matrix2( n_bins, response_len, arma::fill::zeros );
 
-    int rft_time = 0;
-    int response_time = 0;
+    double rft_time = 0;
+    double response_time = 0;
 
     int last_food_loc = 0;
     int component_rft = 0;
-    offset = floor( offset / bin_resolution );
 
     for ( int i = 0; i < event.length(); i ++ ){
         if ( component_start_match(i) != NA_INTEGER ){
@@ -87,12 +84,12 @@ List factorial_time_bin_2(
         }
         if ( rft_match(i) != NA_INTEGER ){
             component_rft += 1;
-            rft_time = time_bins(i);
+            rft_time = time(i);
             last_food_loc = rft_match(i);
         }
         if ( component_rft > 0 ){
             if ( resp_match(i) != NA_INTEGER ){
-                response_time = time_bins(i) - rft_time - offset;
+                response_time = floor( ( time(i) - rft_time - offset )/bin_resolution );
                 if ( response_time < n_bins ){
                     if ( last_food_loc == 1 ){
                         response_matrix1( response_time, resp_match(i) ) ++;
@@ -121,8 +118,6 @@ arma::imat factorial_time_bin_(
     IntegerVector event_match = match( event, event_labels )-1;
 
     int n_bins = floor( max_bin / bin_resolution );
-    time = floor( time / bin_resolution );
-    arma::uvec time_bins = as<arma::uvec>( time );
 
     int n_events = event.length();
 
@@ -131,14 +126,12 @@ arma::imat factorial_time_bin_(
 
     arma::imat response_matrix( n_bins, event_len*break_len, arma::fill::zeros );
 
-    int break_time = 0;
-    int response_time = 0;
+    double break_time = 0;
+    double response_time = 0;
 
     int last_break_index = 0;
     int last_event_index = 0;
     int reset = 0;
-
-    offset = floor( offset / bin_resolution );
 
     for ( int i = 0; i < n_events; i ++ ){
         if ( reset_match(i) != NA_INTEGER ){
@@ -146,12 +139,12 @@ arma::imat factorial_time_bin_(
         }
         if ( break_match(i) != NA_INTEGER ){
             reset += 1;
-            break_time = time_bins(i);
+            break_time = time(i);
             last_break_index = break_match(i);
         }
         if ( reset > 0 ){
             if ( event_match(i) != NA_INTEGER ){
-                response_time = time_bins(i) - break_time - offset;
+                response_time = time(i) - break_time - offset;
                 last_event_index = event_match(i);
                 if ( response_time < n_bins ){
                     response_matrix( response_time, last_event_index+last_break_index*event_len ) ++;
@@ -178,8 +171,6 @@ arma::imat factorial_time_bin(
     IntegerVector event_match = match( event, event_labels )-1;
 
     int n_bins = floor( max_bin / bin_resolution );
-    time = floor( time / bin_resolution );
-    arma::uvec time_bins = as<arma::uvec>( time );
 
     int n_events = event.length();
 
@@ -188,14 +179,12 @@ arma::imat factorial_time_bin(
 
     arma::imat response_matrix( n_bins, event_len*break_len, arma::fill::zeros );
 
-    int break_time = 0;
-    int response_time = 0;
+    double break_time = 0;
+    double response_time = 0;
 
     int last_break_index = 0;
     int last_event_index = 0;
     int reset = 0;
-
-    offset = floor( offset / bin_resolution );
 
     for ( int i = 0; i < n_events; i ++ ){
         if ( reset_match(i) != NA_INTEGER ){
@@ -203,12 +192,12 @@ arma::imat factorial_time_bin(
         }
         if ( break_match(i) != NA_INTEGER ){
             reset += 1;
-            break_time = time_bins(i);
+            break_time = time(i);
             last_break_index = break_match(i);
         }
         if ( reset > 0 ){
             if ( event_match(i) != NA_INTEGER ){
-                response_time = time_bins(i) - break_time - offset;
+                response_time = time(i) - break_time - offset;
                 last_event_index = event_match(i);
                 if ( response_time < n_bins ){
                     response_matrix( response_time, last_event_index+last_break_index*event_len ) ++;
