@@ -273,7 +273,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // row_match
-IntegerVector row_match(NumericMatrix mat, NumericVector ref);
+NumericVector row_match(NumericMatrix mat, NumericVector ref);
 RcppExport SEXP _CAB2_row_match(SEXP matSEXP, SEXP refSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -285,7 +285,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // row_match1
-IntegerVector row_match1(NumericMatrix mat, NumericVector ref);
+NumericVector row_match1(NumericMatrix mat, NumericVector ref);
 RcppExport SEXP _CAB2_row_match1(SEXP matSEXP, SEXP refSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
