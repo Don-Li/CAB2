@@ -3,7 +3,7 @@ using namespace Rcpp;
 
 //'@export row_match
 // [[Rcpp::export]]
-IntegerVector row_match( NumericMatrix mat, NumericVector ref ){
+NumericVector row_match( NumericMatrix mat, NumericVector ref ){
 
     int n = mat.nrow();
     std::vector<double> return_(0);
@@ -19,7 +19,7 @@ IntegerVector row_match( NumericMatrix mat, NumericVector ref ){
 
 //'@export row_match1
 // [[Rcpp::export]]
-IntegerVector row_match1( NumericMatrix mat, NumericVector ref ){
+NumericVector row_match1( NumericMatrix mat, NumericVector ref ){
 
     int n = mat.nrow();
     std::vector<double> return_(0);
